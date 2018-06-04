@@ -1,0 +1,43 @@
+applicationName: demo2-web
+
+logging:
+  file: ${user.home}/logs/demo2-web
+  level.com.redscarf.demo2.web: DEBUG
+
+web:
+ ips: /*
+ tokenHeader: 5ade8aea648647bda5c10a6fb927e298
+
+server.port: 8886
+
+# datasource
+spring:
+  thymeleaf.cache: false
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=UTF-8&useSSL=false
+    username: root
+    password: 123
+    driver-class-name: com.mysql.jdbc.Driver
+    type: com.alibaba.druid.pool.DruidDataSource
+
+# MyBatis
+mybatis:
+  type-aliases-package: com.redscarf.demo2.common.mysql.model
+  #mapper-locations: classpath*:mapper/*.xml
+  #configLocation: classpath:mybatis-config.xml
+
+# 通用Mapper
+mapper:
+  mappers: com.redscarf.demo2.persistence.mysql.mapper.IBaseMapper
+  not-empty: false
+  identity: MYSQL
+
+# 分页插件
+pagehelper:
+  helperDialect: mysql
+  offsetAsPageNum: true
+  rowBoundsWithCount: true
+  pageSizeZero: true
+  reasonable: true
+  supportMethodsArguments: true
+  params: pageNum=start;pageSize=limit;pageSizeZero=zero;reasonable=heli;count=contsql
