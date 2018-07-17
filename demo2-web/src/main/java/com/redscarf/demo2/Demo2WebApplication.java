@@ -6,7 +6,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.concurrent.CountDownLatch;
+//import java.util.concurrent.CountDownLatch;
 
 /**
  * <p>function:
@@ -28,9 +28,9 @@ public class Demo2WebApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        CountDownLatch countDownLatch = new CountDownLatch(1);
+//        CountDownLatch countDownLatch = new CountDownLatch(1);
         log.info("{} boot successfully", this.applicationName);
-        countDownLatch.await();
+//        countDownLatch.await();
     }
 
 }
