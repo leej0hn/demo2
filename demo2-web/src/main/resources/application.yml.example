@@ -20,6 +20,15 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     type: com.alibaba.druid.pool.DruidDataSource
 
+#MongoProperties
+spring.data.mongodb:
+  host: localhost
+  port: 27017
+  database: demo
+#  username:
+#  password:
+
+
 # MyBatis
 mybatis:
   type-aliases-package: com.redscarf.demo2.common.mysql.model

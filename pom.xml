@@ -13,6 +13,8 @@
         <module>demo2-persistence-mysql</module>
         <module>demo2-common-mysql</module>
         <module>demo2-web</module>
+        <module>demo2-common-mongo</module>
+        <module>demo2-persistence-mongo</module>
     </modules>
 
     <name>demo</name>

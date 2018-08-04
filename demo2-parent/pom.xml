@@ -91,7 +91,19 @@
 
             <dependency>
                 <groupId>com.redscarf.demo2</groupId>
+                <artifactId>demo2-common-mongo</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.redscarf.demo2</groupId>
                 <artifactId>demo2-persistence-mysql</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.redscarf.demo2</groupId>
+                <artifactId>demo2-persistence-mongo</artifactId>
                 <version>${project.version}</version>
             </dependency>
 

@@ -3,8 +3,10 @@ package com.redscarf.demo2.web.controller;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.redscarf.demo2.common.exception.ServiceException;
+import com.redscarf.demo2.common.mongo.model.TestMongoModel;
 import com.redscarf.demo2.common.mysql.model.TestUserModel;
 import com.redscarf.demo2.common.vo.Response;
+import com.redscarf.demo2.persistence.mongo.service.TestMongoModelService;
 import com.redscarf.demo2.persistence.mysql.mapper.TestUserModelMapper;
 import com.redscarf.demo2.web.configuration.WebConfig;
 import lombok.extern.slf4j.Slf4j;
@@ -31,6 +33,9 @@ public class TestController {
 
     @Autowired
     private TestUserModelMapper testUserModelMapper;
+
+    @Autowired
+    private TestMongoModelService testMongoModelService;
 
 
     @Value("${web.ips:}")
@@ -71,6 +76,20 @@ public class TestController {
 
         List<TestUserModel> vos = testUserModelMapper.selectAll();
         return Response.ok(new PageInfo<>(vos));
+    }
+
+    @GetMapping("/api/mongo/insert")
+    public Response<Boolean> insertMongo(){
+        TestMongoModel mongoModel = new TestMongoModel();
+        mongoModel.setAge(21);
+        mongoModel.setName("Lee_John");
+        testMongoModelService.save(mongoModel);
+        return Response.ok();
+    }
+
+    @GetMapping("/api/mongo/findAll")
+    public Response<List<TestMongoModel>> findAllMongo(){
+        return Response.ok(testMongoModelService.findAll());
     }
 
 

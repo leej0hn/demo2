@@ -1,10 +1,12 @@
 package com.redscarf.demo2;
 
+import com.redscarf.demo2.persistence.mongo.repository.impl.SimpleCustomerRepository;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
 //import java.util.concurrent.CountDownLatch;
 
@@ -16,6 +18,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 @Slf4j
+@EnableMongoRepositories(repositoryBaseClass = SimpleCustomerRepository.class)//mongo 模块才需要引进
 public class Demo2WebApplication implements CommandLineRunner {
 
     @Value("${applicationName}")

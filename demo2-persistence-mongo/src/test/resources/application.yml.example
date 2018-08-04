@@ -1,0 +1,11 @@
+logging:
+  file: E:\logs\demo2-persistence-mongo
+  level.com.redscarf.demo2.persistence.mongo: DEBUG
+
+#MongoProperties
+spring.data.mongodb:
+  host: localhost
+  port: 27017
+  database: demo
+#  username:
+#  password:
