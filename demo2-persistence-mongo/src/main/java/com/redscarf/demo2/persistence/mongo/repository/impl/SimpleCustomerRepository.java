@@ -11,11 +11,7 @@ import org.springframework.data.mongodb.core.aggregation.TypedAggregation;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
 import org.springframework.data.mongodb.repository.query.MongoEntityInformation;
-import org.springframework.data.mongodb.repository.support.QuerydslMongoPredicateExecutor;
-import org.springframework.data.mongodb.repository.support.QuerydslMongoRepository;
 import org.springframework.data.mongodb.repository.support.SimpleMongoRepository;
-import org.springframework.data.mongodb.repository.support.SpringDataMongodbQuery;
-
 
 import java.io.Serializable;
 import java.util.Date;
