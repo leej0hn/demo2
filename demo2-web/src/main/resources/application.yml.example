@@ -50,3 +50,8 @@ pagehelper:
   reasonable: true
   supportMethodsArguments: true
   params: pageNum=start;pageSize=limit;pageSizeZero=zero;reasonable=heli;count=contsql
+
+spring.security.user:
+  name: user
+  password: password
+  roles: USER
