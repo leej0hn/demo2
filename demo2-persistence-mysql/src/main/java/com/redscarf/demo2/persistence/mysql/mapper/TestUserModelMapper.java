@@ -62,5 +62,6 @@ public interface TestUserModelMapper extends IBaseMapper<TestUserModel>{
             @Param("type") int type
     );
 
+    List<TestUserModel> selectAll3();
 
 }

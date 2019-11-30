@@ -74,5 +74,9 @@ public class TestUserModelMapperTest extends BaseDaoTest {
 
     }
 
+    @Test
+    public void testSelectAll3(){
+        System.out.println(mapper.selectAll3());
+    }
 
 }
