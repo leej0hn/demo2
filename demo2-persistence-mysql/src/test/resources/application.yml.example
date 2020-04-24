@@ -1,6 +1,7 @@
 logging:
   file: E:\logs\demo2-persistence-mysql
-  level.com.redscarf.demo2.persistence.mysql.mapper: DEBUG
+  level:
+    com.redscarf.demo2.persistence.mysql.mapper: DEBUG
 
 # datasource
 spring:

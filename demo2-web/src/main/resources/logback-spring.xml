@@ -28,22 +28,6 @@
         </encoder>
     </appender>
 
-    <!-- file-appender.xml -->
-    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <encoder>
-            <pattern>${FILE_LOG_PATTERN}</pattern>
-        </encoder>
-        <file>${LOG_FILE}/info/info.log</file>
-        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <!-- rollover daily -->
-            <fileNamePattern>${LOG_FILE}/info/info-%d{yyyy-MM-dd}.log</fileNamePattern>
-            <maxHistory>365</maxHistory>
-        </rollingPolicy>
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
-        </filter>
-    </appender>
-
     <appender name="DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
         <encoder>
             <pattern>${FILE_LOG_PATTERN}</pattern>
@@ -59,6 +43,22 @@
             <level>DEBUG</level>
             <onMatch>ACCEPT</onMatch>
             <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!-- file-appender.xml -->
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}/info/info.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LOG_FILE}/info/info-%d{yyyy-MM-dd}.log</fileNamePattern>
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>INFO</level>
         </filter>
     </appender>
 
@@ -80,10 +80,34 @@
         </filter>
     </appender>
 
+    <!-- 每天生成一个html格式的日志 -->
+    <appender name="FILE_HTML"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <!-- rollover daily -->
+            <fileNamePattern>${LOG_FILE}/html/html-%d{yyyy-MM-dd}.html</fileNamePattern>
+            <maxHistory>365</maxHistory>
+        </rollingPolicy>
+        <encoder
+                class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="ch.qos.logback.classic.html.HTMLLayout">
+                <pattern>%p%d%msg%M%F{32}%L</pattern>
+            </layout>
+        </encoder>
+        <!--日志文件最大的大小 -->
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>10MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+    <!-- 每天生成一个html格式的日志 -->
+
     <root level="INFO">
         <appender-ref ref="CONSOLE" />
         <appender-ref ref="FILE" />
+        <appender-ref ref="DEBUG" />
         <appender-ref ref="ERROR" />
+        <appender-ref ref="FILE_HTML" />
     </root>
 
     <logger name="com.redscarf.demo2" level="DEBUG" >
@@ -91,3 +115,4 @@
     </logger>
 
 </configuration>
+
